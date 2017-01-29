@@ -1,0 +1,185 @@
+http://bigocheatsheet.com/
+http://algs4.cs.princeton.edu/cheatsheet/
+https://www.reddit.com/r/learnprogramming/comments/3gpvyx/algorithms_and_data_structures_cheat_sheets/
+
+-------------------------------------------------------------------------------------
+Array
+-------------------------------------------------------------------------------------
+length
+
+Arrays.sort(arr)
+
+// Sort all types of arrays, For ex: Array of nodes sorted according to value
+Arrays.sort(arr, new Comparator<Integer>()
+{
+	public int compare(int i, int j)
+	{
+		return i - j; // Sort in increase order
+		//return j - i;  Sort in increase order
+	}
+});
+
+-------------------------------------------------------------------------------------
+String
+-------------------------------------------------------------------------------------
+ 
+toCharArray() 				//get char array of a String
+charAt(int i) 				//get char at i
+substring(int beginIndex) 
+substring(int beginIndex, int endIndex)
+Integer.valueOf()
+Arrays.toString(char[] a)
+
+-------------------------------------------------------------------------------------
+StringBuilder
+-------------------------------------------------------------------------------------
+
+setCharAt(int i, char ch) 	// Replaces the char at i
+insert(int i, String str) 	// Inserts at an index by increasing the strings length
+append(String str)	
+substring(int beginIndex) // Till the end of string
+substring(int beginIndex, int endIndex) // [begin, end)
+
+
+https://docs.oracle.com/javase/tutorial/collections/implementations/index.html
+
+-------------------------------------------------------------------------------------
+List
+-------------------------------------------------------------------------------------
+add(x)
+remove(i)
+size()
+clear()
+
+// Sort all types of collections, For ex:  Nodes sorted according to value
+Collections.sort(arr, new Comparator<Integer>()
+{
+	public int compare(ListNode l1, ListNode l2)
+	{
+		return l1.val - l2.val; // Sort in increase order
+		//return l2.val - l1.val;  Sort in increase order
+	}
+});
+
+-------------------------------------------------------------------------------------
+Stack
+-------------------------------------------------------------------------------------
+
+peek()
+pop()
+push(int x)
+isEmpty()
+size()
+
+-------------------------------------------------------------------------------------
+Queue
+-------------------------------------------------------------------------------------
+
+peek() / element()
+remove() / poll()
+add(int x) / offer(int x)
+isEmpty()
+size()
+
+-------------------------------------------------------------------------------------
+Deque
+-------------------------------------------------------------------------------------
+Deque<String> aDeque = new ArrayDeque<String>();
+
+addFirst(e) / offerFirst(e)
+addLast(e) / offerLast(e)
+removeFirst() / pollFirst()
+removeLast() / pollLast()
+getFirst() / peekFirst()
+getLast() / peekLast()
+size()
+
+-------------------------------------------------------------------------------------
+HashSet
+-------------------------------------------------------------------------------------
+Set<String> s = new HashSet<String>(64);
+add(key);
+contains(key);
+get(key);
+clear()
+isEmpty()
+remove(key)
+
+-------------------------------------------------------------------------------------
+HashMap
+-------------------------------------------------------------------------------------
+Set<String> s = new HashSet<String>(64);
+
+put(key, value)
+containKey(key);
+containValue(value);
+get(key);
+clear()
+isEmpty()
+remove(key)
+
+
+-------------------------------------------------------------------------------------
+TreeSet
+-------------------------------------------------------------------------------------
+add(x)
+ceil(x) // Returns the least element in this set greater than or equal to the given element, or null if there is no such element.
+floor(x) // Returns the greatest element in this set less than or equal to the given element, or null if there is no such element.
+isEmpty()
+contains(x)
+first()
+last()
+pollFirst() 
+pollLast()
+remove(x)
+
+-------------------------------------------------------------------------------------
+TreeMap
+-------------------------------------------------------------------------------------
+get(key)
+put(key, value)
+ceilingKey(key) // Returns the least element in this set greater than or equal to the given element, or null if there is no such element.
+floorKey(key) // Returns the greatest element in this set less than or equal to the given element, or null if there is no such element.
+isEmpty()
+containsKey(x)
+containsValue(val)
+firstKey()
+firstEntry()
+lastKey()
+lastEntry()
+pollFirst() 
+pollLast()
+remove(x)
+
+
+-------------------------------------------------------------------------------------
+PriorityQueue
+-------------------------------------------------------------------------------------
+Creates a PriorityQueue with the specified initial capacity that orders  its elements according to the specified comparator.
+public PriorityQueue(int initialCapacity, Comparator<? super E> comparator)
+                 
+peek() 
+poll()
+offer(int x)
+isEmpty()
+size()
+
+
+-------------------------------------------------------------------------------------
+PriorityQueue
+-------------------------------------------------------------------------------------
+hasNext()
+next()
+remove()
+Iterator<String> it = <any-collection>.iterator();
+while(it.hasNext())
+{
+   System.out.println(it.next());
+}
+
+-------------------------------------------------------------------------------------
+Random
+-------------------------------------------------------------------------------------
+Random rand = new Random();
+nextInt(int n) // returns a random value from [0,n)
+ 
