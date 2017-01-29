@@ -1,3 +1,7 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class DynamicProgramming
 {
 	public int longestZigZagSequence(int[] arr)
@@ -98,6 +102,97 @@ public class DynamicProgramming
 		}
 
 		return min == Integer.MAX_VALUE ? 0 : min;
+	}
+
+	public int numSquares(int n)
+	{
+		List<Integer> list = new ArrayList<Integer>();
+
+		if (n <= 1)
+			return 1;
+
+		for (int i = 1; i * i <= n; i++)
+		{
+			list.add(i * i);
+		}
+
+		int[][] table = new int[list.size()][n + 1];
+
+		for (int j = 0; j < n + 1; j++)
+			table[0][j] = j;
+
+		for (int i = 1; i < list.size(); i++)
+		{
+			for (int j = 0; j < n + 1; j++)
+			{
+				if (j == 0)
+					table[i][j] = 0;
+				else
+				{
+					if (j - list.get(i) >= 0)
+					{
+						int value = 1 + table[i][j - list.get(i)];
+						table[i][j] = Math.min(value, table[i - 1][j]);
+					} else
+					{
+						table[i][j] = table[i - 1][j];
+					}
+
+				}
+			}
+		}
+
+		return table[list.size() - 1][n];
+	}
+
+	public int combinationSum4(int[] nums, int target)
+	{
+		int[] table = new int[target + 1];
+		table[0] = 1;
+
+		Arrays.sort(nums);
+
+		for (int i = 1; i <= target; i++)
+		{
+			for (int j = 0; j < nums.length; j++)
+			{
+				if (i - nums[j] < 0)
+					break;
+
+				table[i] += table[i - nums[j]];
+			}
+		}
+
+		return table[target];
+	}
+
+	public int lengthOfLIS(int[] nums)
+	{
+		if (nums.length <= 1)
+			return nums.length;
+
+		int[] table = new int[nums.length];
+
+		for (int i = 0; i < table.length; i++)
+			table[i] = 1;
+
+		int j = 0;
+		int len = Integer.MIN_VALUE;
+		for (int i = 1; i < nums.length; i++)
+		{
+			j = 0;
+			while (j < i)
+			{
+				if (nums[i] > nums[j])
+				{
+					table[i] = Math.max(table[i], table[j] + 1);
+				}
+				j++;
+			}
+			len = Math.max(len, table[i]);
+		}
+
+		return len == Integer.MIN_VALUE ? 0 : len;
 	}
 
 	public int bestStockProfitII(int[] arr)
