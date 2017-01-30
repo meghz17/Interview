@@ -1,4 +1,4 @@
-package design;
+package com.interview.design;
 
 import java.util.HashMap;
 
